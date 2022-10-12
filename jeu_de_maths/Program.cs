@@ -21,23 +21,25 @@ namespace jeu_de_maths
                 int a = rand.Next(min, max + 1);
                 int b = rand.Next(min, max + 1);
                 e_Operateur o = (e_Operateur)rand.Next(1, 4);
-                int resultatAttendu;
+                int resultatAttendu = 0;
 
-                if (o == e_Operateur.ADDITION)
+                switch(o)
                 {
-                    Console.WriteLine($"quel est le résultat de {a} + {b} ?");
-                    resultatAttendu = a + b;
+                    case e_Operateur.ADDITION:
+                        Console.WriteLine($"quel est le résultat de {a} + {b} ?");
+                        resultatAttendu = a + b;
+                        break;
+                    case e_Operateur.MULTIPLICATION:
+                        Console.WriteLine($"quel est le résultat de {a} * {b} ?");
+                        resultatAttendu = b * a;
+                        break;
+                    case e_Operateur.SOUSTRACTION:
+                        Console.WriteLine($"quel est le résultat de {a} - {b} ?");
+                        resultatAttendu = a - b;
+                        break;
                 }
-                else if(o == e_Operateur.MULTIPLICATION)
-                {
-                    Console.WriteLine($"quel est le résultat de {a} * {b} ?");
-                    resultatAttendu = b * a;
-                }
-                else
-                {
-                    Console.WriteLine($"quel est le résultat de {a} - {b} ?");
-                    resultatAttendu = a - b;
-                }
+                
+              
 
                 string reponse = Console.ReadLine();
 
